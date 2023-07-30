@@ -5,7 +5,7 @@ import ImageIcon from '@mui/icons-material/Image';
 import EventNoteIcon from '@mui/icons-material/EventNote';
 import OndemandVideoIcon from '@mui/icons-material/OndemandVideo';
 import CalendarViewDayIcon from '@mui/icons-material/CalendarViewDay';
-
+import Post from '../src/Post.js'
 export default function Feed() {
     return (
         <div className="feed">
@@ -23,6 +23,7 @@ export default function Feed() {
                     <InputOption color="#C37D16" Icon={EventNoteIcon} title="Event"/>
                     <InputOption color="#E16745" Icon={CalendarViewDayIcon} title="Write article"/>
                 </div>
+                <Post name="Kunj Dhola" desc="SDE @ google" msg="Hello World!" photoUrl="https://media.licdn.com/dms/image/D4D03AQFnsnHh_ceYjw/profile-displayphoto-shrink_800_800/0/1665685369163?e=2147483647&v=beta&t=-_JZUvWBicdCKOwo6ucPwzqlQ608TelRY8Vx6jorTpw"/>
             </div>
         </div>
     );
