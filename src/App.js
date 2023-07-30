@@ -1,13 +1,16 @@
 import React from 'react';
 import './App.css';
 import Header from './Header'
+import Sidebar from './Sidebar.js'
 function App() {
   return (
-    <div className="App">
-      {/* <h1>Linkedin Clone</h1> */}
+    <div className="app">
       {/* header  */}
       <Header/>
+      <div className="app__body">
+        <Sidebar/>
       {/* main -> sidebar, feed, widgets */}
+      </div>
       
     </div>
   );

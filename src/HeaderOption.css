@@ -3,11 +3,9 @@
     flex-direction: column;
     align-items: center;
     color: gray;
-    font-size: 8px;
-    font-weight: 400;
     padding: 10px;
     cursor: pointer;
-    margin-right: 5px;
+    margin-right: 2px;
 }
 .headerOption:hover {
     color: black;
@@ -16,4 +14,8 @@
     object-fit: contain;
     height: 25px !important;
     width: 25px !important;
+}
+.headerOption__title{
+    font-size:12px;
+    font-weight: 400;
 }

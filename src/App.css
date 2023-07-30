@@ -1,0 +1,9 @@
+.app__body{
+display: flex;
+align-items: center;
+width: 80%;
+margin: auto;
+}
+.app {
+    background-color: #F3F2EF;
+}
