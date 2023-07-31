@@ -23,6 +23,7 @@ export default function Feed() {
 
     function sendPost(e) {
         e.preventDefault();
+        console.log("sending");
         db.collection("posts").add({
             name: "Kunj Dhola",
             description: "University of Manchester",
@@ -42,7 +43,7 @@ export default function Feed() {
                                 e => setInput(e.target.value)
                             }
                             type="text"/>
-                        <button onSubmit={sendPost}
+                        <button onClick= {sendPost}
                             type="submit">Send</button>
                     </form>
                 </div>
@@ -70,8 +71,9 @@ export default function Feed() {
                         photoUrl
                     }
                 }) => {
-                    <Post key={id}
+                    return <Post key={id}
                         name={name}
+                        description = {description}
                         message={message}
                         photoUrl={photoUrl}/>
                 })
