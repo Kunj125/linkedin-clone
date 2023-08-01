@@ -1,7 +1,7 @@
 .app__body{
 display: flex;
-width: 80%;
 margin: auto;
+justify-content: center;
 }
 .app {
     background-color: #F3F2EF;

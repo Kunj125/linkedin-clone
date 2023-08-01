@@ -1,7 +1,11 @@
 import {Avatar} from "@mui/material";
 import '../src/Sidebar.css'
+import { selectUser } from './features/userSlice';
+import { useSelector } from 'react-redux';
+
 export default function Sidebar() {
-    
+    const user = useSelector(selectUser);
+
     const recentItem = (topic, symbol) => (
         <div className="recent__item">
             <span className="item__hash">{symbol}</span>
@@ -13,10 +17,9 @@ export default function Sidebar() {
         <div>
             <div className="sidebar__top">
                 <img src="https://media.licdn.com/dms/image/D4E16AQEwApvd6B82vQ/profile-displaybackgroundimage-shrink_200_800/0/1670820952750?e=1696464000&v=beta&t=O3kQ-z9RGi-ldV5FPJAmWMaQIMY7eWHFeJ7xy-YE5gg" alt=""></img>
-                <Avatar className="sidebar__avatar" src="https://media.licdn.com/dms/image/D4D03AQFnsnHh_ceYjw/profile-displayphoto-shrink_800_800/0/1665685369163?e=2147483647&v=beta&t=-_JZUvWBicdCKOwo6ucPwzqlQ608TelRY8Vx6jorTpw"/>
-                <h2>Kunj Dhola</h2>
-                <h4>Computer Science and Mathematics</h4>
-                <h4>@ University of Manchester</h4>
+                <Avatar className="sidebar__avatar" src={user.photoURL}>{user.displayName[0]}</Avatar>
+                <h2>{user.displayName}</h2>
+                <h4>{user.email}</h4>
                 <div className="sidebar__stats">
                     <div className="sidebar__stat">
                         <p>Who's viewed your profile</p>

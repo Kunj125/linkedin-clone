@@ -6,7 +6,15 @@ import WorkIcon from '@mui/icons-material/Work';
 import SmsIcon from '@mui/icons-material/Sms';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import HeaderOption from './HeaderOption';
+import { useDispatch } from 'react-redux';
+import {logout } from '../src/features/userSlice.js'
+import {auth} from '../src/firebase'
 export default function Header(){
+    const dispatch = useDispatch();
+    const logOut = () =>{
+        dispatch(logout());
+        auth.signOut();
+    }
     return (
         <div className="header">
             <div className="header__left">
@@ -22,7 +30,7 @@ export default function Header(){
             <HeaderOption title="Jobs" Icon={WorkIcon}/>
             <HeaderOption title="Messaging" Icon={SmsIcon}/>
             <HeaderOption title="Notifications" Icon={NotificationsIcon}/>
-            <HeaderOption avatar="https://media.licdn.com/dms/image/D4D03AQFnsnHh_ceYjw/profile-displayphoto-shrink_800_800/0/1665685369163?e=2147483647&v=beta&t=-_JZUvWBicdCKOwo6ucPwzqlQ608TelRY8Vx6jorTpw" title='me'/>
+            <HeaderOption avatar={true} onClick={logOut} title='me'/>
             </div>
         </div>
     );

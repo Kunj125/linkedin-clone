@@ -9,10 +9,13 @@ import Post from '../src/Post.js'
 import {useEffect, useState} from 'react';
 import {db} from './firebase'
 import firebase from 'firebase';
+import { selectUser } from './features/userSlice';
+import { useSelector } from 'react-redux';
 
 export default function Feed() {
     const [input, setInput] = useState("");
     const [posts, setPosts] = useState([]);
+    const user = useSelector(selectUser);
 
     useEffect(() => {
         db.collection("posts").onSnapshot((snapshot) => setPosts(snapshot.docs.map((doc) => ({
@@ -25,10 +28,10 @@ export default function Feed() {
         e.preventDefault();
         console.log("sending");
         db.collection("posts").add({
-            name: "Kunj Dhola",
-            description: "University of Manchester",
+            name: user.displayName,
+            description: user.email,
             message: input,
-            photoUrl: "https://media.licdn.com/dms/image/D4D03AQFnsnHh_ceYjw/profile-displayphoto-shrink_800_800/0/1665685369163?e=2147483647&v=beta&t=-_JZUvWBicdCKOwo6ucPwzqlQ608TelRY8Vx6jorTpw",
+            photoUrl: user.photoURL,
             timestamp: firebase.firestore.FieldValue.serverTimestamp()
         });
         setInput("");

@@ -15,7 +15,7 @@
 .header img {
     height: 35px;
     object-fit: contain;
-    margin-right: 5px;
+    /* margin-right: 5px; */
 }
 .header__search {
     display: flex;
